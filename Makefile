@@ -6,11 +6,11 @@
 #    By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/04 03:52:08 by iabasala          #+#    #+#              #
-#    Updated: 2025/02/06 00:22:04 by iabasala         ###   ########.fr        #
+#    Updated: 2025/02/06 23:33:11 by iabasala         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = dup_or_sorted.c edge_cases.c join_split_push.c main.c utils.c pars_push.c swapes.c pushes.c lists_libft.c
+SRCS = dup_or_sorted.c edge_cases.c join_split_push.c main.c utils.c pars_push.c swapes.c pushes.c  rev_rotate.c lists_libft.c sort_inf_six.c stack_op.c
 OBJS = ${SRCS:.c=.o}
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap

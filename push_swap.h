@@ -31,12 +31,26 @@ int	count_words(char *s);
 int    ft_atoi(char *str);
 int ft_free(char **one_arg);
 t_stack *pars_push(int argc, char **argv);
-void swap_a(t_stack **sa);
-void swap_b(t_stack **sb);
+void swap_a(t_stack **a);
+void swap_b(t_stack **b);
 void print_stack(t_stack *s);
 t_stack	*ft_lstnew(int content);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
-
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+void pa(t_stack **a, t_stack **b);
+void pb(t_stack **a, t_stack **b);
+void rb(t_stack **b);
+void ra(t_stack **a);
+void rr(t_stack **b, t_stack **a);
+void rra(t_stack **stack);
+void rrb(t_stack **stack);
+void sa(t_stack **a);
+void sb(t_stack **b);
+void ss(t_stack **a, t_stack **b);
+void rrr(t_stack **b,t_stack **a);
+void free_stack(t_stack *s);
+void if_two(t_stack **s);
+void if_tree(t_stack **s);
 
 
 

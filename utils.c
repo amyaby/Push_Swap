@@ -43,17 +43,15 @@ int	delimiter(char c)
 int	count_words(char *s)
 {
 	int	countword;
-	int c;
 	countword = 0;
-	c = 0;
 	while (*s)
 	{
-		while (*s && *s == c)
+		while (*s && *s == ' ')
 			s++;
-		if (*s && *s != c)
+		if (*s && *s != ' ')
 		{
 			countword++;
-			while (*s && *s != c)
+			while (*s && *s != ' ')
 				s++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:54:08 by iabasala          #+#    #+#             */
-/*   Updated: 2025/02/04 18:39:59 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:57:52 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int parsing(int argc, char **argv)
 	{
 		if (!is_check(argv[i]))
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			return 0;
 		}
 		i++;
 	}
-	return 0;
+	return 1;
 }
 
 

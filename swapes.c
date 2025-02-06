@@ -6,48 +6,39 @@
 /*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:50:52 by iabasala          #+#    #+#             */
-/*   Updated: 2025/02/05 23:22:30 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/02/06 23:45:10 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*void print_stack(t_stack *s)
-{
-    t_stack *temp;
-    temp = s;
-    while(temp)
-    {         
-        printf("%d   ",temp->value);
-        temp = temp->next;       
-    }
-}*/
-void swap_a(t_stack **sa)
+
+void sa(t_stack **a)
 {       
-    if( !sa ||!(*sa) || !(*sa)->next)
+    if( !a ||!(*a) || !(*a)->next)
         return;
     int swap;
-        swap = (*sa)->value;
-        (*sa)->value = (*sa)->next->value;
-        (*sa)->next->value = swap;        
+        swap = (*a)->value;
+        (*a)->value = (*a)->next->value;
+        (*a)->next->value = swap;        
     write(1,"sa\n",3);
 
 }
-void swap_b(t_stack **sb)
+void sb(t_stack **b)
 {
 
-    if(!sb || !(*sb) || !(*sb)->next)
+    if(!b || !(*b) || !(*b)->next)
         return;
     int swap;
-        swap = (*sb)->value;
-        (*sb)->value = (*sb)->next->value;
-        (*sb)->next->value = swap;        
+        swap = (*b)->value;
+        (*b)->value = (*b)->next->value;
+        (*b)->next->value = swap;        
         write(1,"sb\n",3);
 
 }
-void swap_both(t_stack **sa, t_stack **sb)
+void ss(t_stack **a, t_stack **b)
 {
-    swap_a(sa);
-    swap_b(sb);
+    sa(a);
+    sb(b);
     write(1,"ss\n",3);
 }
