@@ -51,6 +51,7 @@ void rrr(t_stack **b,t_stack **a);
 void free_stack(t_stack *s);
 void if_two(t_stack **s);
 void if_tree(t_stack **s);
+void if_four(t_stack **a ,t_stack **b );
 
 
 
