@@ -6,7 +6,7 @@
 /*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 22:37:43 by iabasala          #+#    #+#             */
-/*   Updated: 2025/02/06 00:37:53 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:47:53 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,16 @@ t_stack	*ft_lstlast(t_stack *lst)
 		lst = lst->next;
 	}
 	return (lst);
+}
+int	ft_lstsize(t_stack *lst)
+{
+	int	count;
+
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
 }

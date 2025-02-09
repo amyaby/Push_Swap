@@ -52,6 +52,8 @@ void free_stack(t_stack *s);
 void if_two(t_stack **s);
 void if_tree(t_stack **s);
 void if_four(t_stack **a ,t_stack **b );
+void if_five(t_stack **a, t_stack **b);
+int	ft_lstsize(t_stack *lst);
 
 
 
