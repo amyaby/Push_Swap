@@ -54,6 +54,10 @@ void if_tree(t_stack **s);
 void if_four(t_stack **a ,t_stack **b );
 void if_five(t_stack **a, t_stack **b);
 int	ft_lstsize(t_stack *lst);
+int stack_contains(t_stack *stack, int val1, int val2);
+int *sort_array(t_stack *a);
+void bubble_sort(int *str,int size);
+void compare_pusha(int *s, t_stack **a);
 
 
 

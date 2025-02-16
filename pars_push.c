@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iabasala <iabasala@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 01:50:41 by iabasala          #+#    #+#             */
-/*   Updated: 2025/02/08 23:30:38 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/02/16 12:48:42 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_stack *pars_push(int argc, char **argv)
 		//printf("%s---",one_arg[i]);
 		int num = ft_atoi(one_arg[i]);
 		push_stack(&stack,num);//pass the address of the stack(head)
-		 //printf("Before sorting: ");
-    		//print_stack(stack);
+		// printf("Before sorting: ");
+    	//	print_stack(stack);
 			//if_two(&stack);
 	//write(1,"\n",1);
 			// main(argc,argv);
@@ -51,8 +51,24 @@ t_stack *pars_push(int argc, char **argv)
 	ft_free(one_arg);	
 	if_tree(&stack);
 	if_four(&stack ,&b );
-	if_five(&stack, &b);
-    print_stack(stack);
-	return stack;	
+	//if_five(&stack, &b);
+   // print_stack(stack);
+	//return stack;	
+	//printf("Before if_five: ");
+   // print_stack(stack);
+    
+    if_five(&stack, &b);
+    
+    //printf("After if_five: ");
+   // print_stack(stack);
+    
+    //return stack;
+	int *sorted_array;
+sorted_array = sort_array(stack);
+if (sorted_array)
+    compare_pusha(sorted_array, &stack);
+return stack;
+
+	
 }
 
