@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabasala <iabasala@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 01:50:41 by iabasala          #+#    #+#             */
-/*   Updated: 2025/02/16 12:48:42 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/03/16 20:49:27 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ t_stack *pars_push(int argc, char **argv)
 	all_args = ft_strjoin(argc,argv);
 	one_arg = split(all_args);
 		//printf("%s---",one_arg[1]);
+if (!one_arg)
+{
+    exit(1);
+}
 
 	while(one_arg[i])
 	{
@@ -39,7 +43,7 @@ t_stack *pars_push(int argc, char **argv)
 		push_stack(&stack,num);//pass the address of the stack(head)
 		// printf("Before sorting: ");
     	//	print_stack(stack);
-			//if_two(&stack);
+			//if_twoss(&stack);
 	//write(1,"\n",1);
 			// main(argc,argv);
 			// printf("After sorting: ");
@@ -48,27 +52,38 @@ t_stack *pars_push(int argc, char **argv)
 	}    
 
 	free(all_args);
-	ft_free(one_arg);	
+	if_two(&stack);
 	if_tree(&stack);
 	if_four(&stack ,&b );
-	//if_five(&stack, &b);
+   	if_five(&stack, &b);
+	if (!stack)
+    	printf("ERROR: Stack A is NULL before calling if_five.\n");
+	if (!b)
+    	printf("WARNING: Stack B is NULL before calling if_five.\n");
+	// if_five(&stack, &b);
    // print_stack(stack);
 	//return stack;	
 	//printf("Before if_five: ");
    // print_stack(stack);
     
-    if_five(&stack, &b);
     
     //printf("After if_five: ");
    // print_stack(stack);
     
     //return stack;
+	
 	int *sorted_array;
 sorted_array = sort_array(stack);
+printf("------------");
 if (sorted_array)
+{
     compare_pusha(sorted_array, &stack);
-return stack;
+	 free(sorted_array);
+}
+printf("+++++++++++++");
 
+ft_free(one_arg);
+return stack;
 	
 }
 

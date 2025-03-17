@@ -58,6 +58,8 @@ int stack_contains(t_stack *stack, int val1, int val2);
 int *sort_array(t_stack *a);
 void bubble_sort(int *str,int size);
 void compare_pusha(int *s, t_stack **a);
+void compare(t_stack *a,t_stack **b);
+
 
 
 

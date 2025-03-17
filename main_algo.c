@@ -21,41 +21,41 @@ int check_numbers(t_stack *stack)
         end = size/6;
     else
         end = size/14;
-    //printf("DEBUG: End value is: %d\n", end);
     return(end);
 }
 void compare(t_stack *a,t_stack **b)
 {
-    if(!(*b))
+    if(!*b)
         *b = ft_lstnew(a->value);
     else if(a->value < (*b)->value)
         sb(b);
 }
-void compare_pusha(int *s,t_stack **a)
+void compare_pusha(int *s, t_stack **a)
 {
     t_stack *b = NULL;
-int end;
-end = check_numbers(*a);
-int start;
-start = s[0];
-//printf("DEBUG: start value: %d\n", start);
-//printf("DEBUG: end value: %d\n", end);
-    while(*a)
+    int end = check_numbers(*a);
+    int start = 0;
+
+    (void)s; // Suppress unused parameter warning
+
+    while (*a)
     {
-        if((*a)->value <= start)
+        if ((*a)->value <= start)
         {
-           // printf("DEBUG: Pushing to b and rotating (value <= start)\n");
-            pb(a,&b);
-            rb(&b);
+            pb(a, &b);
+            if (b) // Ensure b is not NULL before rotating
+                rb(&b);
         }
-        if((*a)->value <= end)
+        else if ((*a)->value <= end)
         {
-            //printf("DEBUG: Pushing to b and comparing (value <= end)\n");
-            pb(a,&b);
-            compare(*a,&b);
+            pb(a, &b);
+            if (b) // Ensure b is not NULL before comparing
+               compare(*a, &b);
         }
+        else ra
+        //print_stack(*a);
+        //print_stack(b);
         start++;
         end++;
-        *a= (*a)->next;
     }
 }
