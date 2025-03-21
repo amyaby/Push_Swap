@@ -14,15 +14,20 @@
 
 int check_numbers(t_stack *stack)
 {
+    int size = ft_lstsize(stack);
     int end;
-    int size;
-    size = ft_lstsize(stack);
-    if(size<=100 )
-        end = size/6;
+
+    if (size == 0)
+        return 1;
+
+    if (size <= 100)
+        end = size / 6;
     else
-        end = size/14;
-    return(end);
+        end = size / 14;
+
+    return end;
 }
+
 void compare(t_stack *a,t_stack **b)
 {
     if(!*b)
@@ -33,29 +38,29 @@ void compare(t_stack *a,t_stack **b)
 void compare_pusha(int *s, t_stack **a)
 {
     t_stack *b = NULL;
-    int end = check_numbers(*a);
+    int size = ft_lstsize(*a);
+    int chunk_size = check_numbers(*a);
     int start = 0;
+    int end = chunk_size;
 
-    (void)s; // Suppress unused parameter warning
+    (void)s;
 
-    while (*a)
+    while (*a && end < size)
     {
         if ((*a)->value <= start)
         {
             pb(a, &b);
-            if (b) // Ensure b is not NULL before rotating
-                rb(&b);
+            rb(b);
+            incriment_index(&start, &end, size);
         }
         else if ((*a)->value <= end)
         {
             pb(a, &b);
-            if (b) // Ensure b is not NULL before comparing
-               compare(*a, &b);
+            compare(b, &b);
+            incriment_index(&start, &end, size);
         }
-        else ra
-        //print_stack(*a);
-        //print_stack(b);
-        start++;
-        end++;
+            
+        else
+            ra(a);
     }
 }

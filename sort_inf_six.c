@@ -6,7 +6,7 @@
 /*   By: iabasala <iabasala@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:22:45 by iabasala          #+#    #+#             */
-/*   Updated: 2025/02/14 10:46:25 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:39:01 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,3 +108,26 @@ void    if_five(t_stack **a, t_stack **b)
     if_four(a, b);
     pa(a, b);
 }
+void sort_the_stack(t_stack **a, t_stack **b, int size) 
+{
+    if (size == 2)
+        if_two(a);
+    else if (size == 3)
+        if_tree(a);
+    else if (size == 4)
+        if_four(a, b);
+    else if (size == 5)
+        if_five(a, b);
+    else
+    {
+        int *sorted_array;
+        sorted_array = sort_array(*a);
+        if (sorted_array)
+        {
+            compare_pusha(sorted_array, a);
+	        free(sorted_array);
+        }
+        
+    }
+}
+
