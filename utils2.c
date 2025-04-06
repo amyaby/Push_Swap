@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_algo.c                                       :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:40:42 by iabasala          #+#    #+#             */
-/*   Updated: 2025/04/06 06:03:07 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/04/06 09:20:54 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	incriment_index(int *start, int *end, int size)
 	if (*start < size - 2)
 		(*start)++;
 }
-void	init_index(t_stack *lst) //sets an index for each node in the stack
+void	get_index(t_stack *lst) //sets an index for each node in the stack
 {
 	int	i;
 
@@ -30,22 +30,7 @@ void	init_index(t_stack *lst) //sets an index for each node in the stack
 		i++;
 	}
 }
-
-t_stack	*max_node(t_stack *lst)
-{
-	t_stack	*max;
-
-	init_index(lst);
-	max = lst;
-	while (lst)
-	{
-		if (lst->next && max->value < lst->next->value)
-			max = lst->next;
-		lst = lst->next;
-	}
-	return (max);
-}
-t_stack *big_node(t_stack *lst)
+t_stack *find_max(t_stack *lst)
 {
     t_stack *max;
 
@@ -59,4 +44,28 @@ t_stack *big_node(t_stack *lst)
     }
     return (max);
 }
+void init_index(t_stack *stack)
+{
+    int i = 0;
+    while (stack)
+    {
+        stack->index = i++;
+        stack = stack->next;
+    }
+}
+t_stack *big_node(t_stack *stack)
+{
+    t_stack *biggest;
+
+    init_index(stack);
+    biggest = stack;
+    while (stack)
+    {
+        if (stack->value > biggest->value)
+            biggest = stack;
+        stack = stack->next;
+    }
+    return (biggest);
+}
+
 

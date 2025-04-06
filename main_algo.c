@@ -36,7 +36,7 @@ void compare(t_stack *a, t_stack **b)
         return;
 }
 
-void compare_pusha_toB(t_stack **a, t_stack **b,int *bub_sort, int size)
+/*void compare_pusha_toB(t_stack **a, t_stack **b,int *bub_sort, int size)
 {
     //int size = ft_lstsize(*a);
     int end = check_numbers(*a);
@@ -58,10 +58,38 @@ void compare_pusha_toB(t_stack **a, t_stack **b,int *bub_sort, int size)
         else
             ra(a);     
     }
+   
+}*/
+void compare_pusha_toB(t_stack **a, t_stack **b, int *bub_sort, int size)
+{
+    int end = check_numbers(*a);
+    int start = 0;
+
+int pushed = 0;
+while (pushed < size)
+
+{
+    if ((*a)->value <= bub_sort[start])
+    {
+        pb(a, b);
+        rb(b);
+        incriment_index(&start, &end, size);
+    }
+    else if ((*a)->value <= bub_sort[end])
+    {
+        pb(a, b);
+        compare(*a, b);
+        incriment_index(&start, &end, size);
+    }
+    else
+        ra(a);
+    pushed++;
+}
 }
 
 
-void  fromb_to_a(t_stack **a, t_stack **b)
+
+void  push_back_to_a(t_stack **a, t_stack **b)
 {
     t_stack *biggest;
 
@@ -79,8 +107,6 @@ void  fromb_to_a(t_stack **a, t_stack **b)
     }
 }
 
-
-
 void algo(t_stack **a, t_stack **b, int *arr, int size)
 {
     int *bub_sort;
@@ -89,6 +115,6 @@ void algo(t_stack **a, t_stack **b, int *arr, int size)
         return;
     bub_sort = bubble_sort(arr, size);
     compare_pusha_toB(a, b, bub_sort, size);
-    fromb_to_a(a, b);
+    push_back_to_a(a, b);
 
 }
