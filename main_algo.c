@@ -89,24 +89,25 @@ while (pushed < size)
 
 
 
-void  push_back_to_a(t_stack **a, t_stack **b)
+void push_back_to_a(t_stack **a, t_stack **b)
 {
     t_stack *biggest;
 
     while (*b)
     {
-        biggest = big_node(*b);  
+        biggest = big_node(*b);  // Find the biggest node in stack b
         while (biggest->value != (*b)->value)
         {
             if (biggest->index <= ft_lstsize(*b) / 2)
-                rb(b); 
+                rb(b);
             else
                 rrb(b);
         }
-        pa(a, b);
-        (*b) = (*b)->next;
+        pa(a, b);  // Push the biggest to stack a
+        // no need to do (*b) = (*b)->next;
     }
 }
+
 
 void algo(t_stack **a, t_stack **b, int *arr, int size)
 {
