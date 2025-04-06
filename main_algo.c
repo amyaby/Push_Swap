@@ -104,6 +104,7 @@ void  push_back_to_a(t_stack **a, t_stack **b)
                 rrb(b);
         }
         pa(a, b);
+        (*b) = (*b)->next;
     }
 }
 
