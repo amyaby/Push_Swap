@@ -6,7 +6,7 @@
 /*   By: iabasala <iabasala@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 01:50:41 by iabasala          #+#    #+#             */
-/*   Updated: 2025/04/07 00:09:51 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/04/07 00:19:47 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack *pars_push(int argc, char **argv)
 
     if (one_arg)
         free(one_arg);
-        algo(&stack, &b, sort_array(stack), ft_lstsize(stack));
+    algo(&stack, &b, sort_array(stack), ft_lstsize(stack));
         t_stack *tmp = stack;
         while(tmp != NULL)
         {
