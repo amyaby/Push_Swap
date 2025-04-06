@@ -6,7 +6,7 @@
 /*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:22:45 by iabasala          #+#    #+#             */
-/*   Updated: 2025/04/06 00:36:59 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/04/06 06:29:55 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,8 @@ void sort_the_stack(t_stack **a, t_stack **b, int size)
         int *sorted_array = sort_array(*a);
         if (sorted_array)
         {
-            compare_pusha(sorted_array, a, b);  // <- PASS B
+            algo(a, b, sorted_array, size);
+            //compare_pusha(sorted_array, a, b);  // <- PASS B
             free(sorted_array);
         }
     }

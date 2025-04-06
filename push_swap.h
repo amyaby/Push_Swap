@@ -13,6 +13,7 @@
 typedef struct s_stack
 {
 	int			value;
+	int				index;
 	struct s_stack	*next;
 }t_stack;
 
@@ -56,15 +57,15 @@ void if_five(t_stack **a, t_stack **b);
 int	ft_lstsize(t_stack *lst);
 int stack_contains(t_stack *stack, int val1, int val2);
 int *sort_array(t_stack *a);
-void bubble_sort(int *str,int size);
-void compare_pusha(int *s, t_stack **a, t_stack **b);
+int *bubble_sort(int *str,int size);
+void compare_pusha_toB(t_stack **a, t_stack **b,int *bub_sort,int size);
+void  fromb_to_a(t_stack **a, t_stack **b);
+void	init_index(t_stack *lst);
+t_stack	*max_node(t_stack *lst);
 void compare(t_stack *a,t_stack **b);
 void sort_the_stack(t_stack **a, t_stack **b, int size);
 void	incriment_index(int *start, int *end, int size);
-
-
-
-
-
+t_stack *big_node(t_stack *lst);
+void algo(t_stack **a, t_stack **b, int *arr, int size);
 
 #endif

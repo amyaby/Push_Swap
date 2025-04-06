@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabasala <iabasala@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 01:50:41 by iabasala          #+#    #+#             */
-/*   Updated: 2025/03/21 14:33:48 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/04/06 01:12:52 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,11 @@ t_stack *pars_push(int argc, char **argv)
     int i = 0;
 
     // Check if arguments are valid
-    if (!parsing(argc, argv))
-        exit(0);
-
+    //if (!parsing(argc, argv))
+      //  exit(0);
+      parsing(argc, argv);
     // Check for duplicates in the arguments
-    if (is_duplicate(argc, argv))
-    {
-        write(2, "Error\n", 6);
-        exit(0);
-    }
+    is_duplicate(argc, argv);
 
     // Check if the stack is already sorted
     if (is_sorted(argc, argv))

@@ -11,7 +11,10 @@ int is_duplicate(int argc, char **argv)//7tach makanbdlouch fih
         while(j < argc)
         {
              if(ft_atoi(argv[i]) == ft_atoi(argv[j]))
-                return 1;
+             {
+                write(2, "Error\n", 6);
+                exit(0);
+             }
             j++;
         }
         i++;

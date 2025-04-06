@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-void bubble_sort(int *str, int size)
+int *bubble_sort(int *str, int size)
 {
     int sort;
     int is_swapped;
@@ -37,6 +37,7 @@ void bubble_sort(int *str, int size)
             break;
         i++;
     }
+    return(str);
 }
 
 int *sort_array(t_stack *stack)
