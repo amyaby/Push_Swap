@@ -57,14 +57,10 @@ int	ft_lstsize(t_stack *lst);
 int stack_contains(t_stack *stack, int val1, int val2);
 int *sort_array(t_stack *a);
 void bubble_sort(int *str,int size);
-void compare_pusha(int *s, t_stack **a);
+void compare_pusha(int *s, t_stack **a, t_stack **b);
 void compare(t_stack *a,t_stack **b);
-<<<<<<< HEAD
-
-=======
 void sort_the_stack(t_stack **a, t_stack **b, int size);
 void	incriment_index(int *start, int *end, int size);
->>>>>>> a3889fc (part one almost done)
 
 
 
