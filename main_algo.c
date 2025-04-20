@@ -12,13 +12,10 @@
 
 #include "push_swap.h"
 
-int check_numbers(t_stack *stack)
+int check_numbers(t_stack *stack, int size)
 {
-    int size = ft_lstsize(stack);
-    int end;
-
-    if (size == 0)
-        return 1;
+    (void)stack;
+    int end = 0;
 
     if (size <= 100)
         end = size / 6;
@@ -28,9 +25,10 @@ int check_numbers(t_stack *stack)
     return end;
 }
 
-void compare(t_stack *a, t_stack **b)
+void compare(t_stack **a, t_stack **b)
 {
-    if (a && *b && a->value < (*b)->value)
+    (void)a;
+    if ((*b)->next != NULL && (*b)->next->value > (*b)->value)
         sb(b);
     else
         return;
@@ -62,50 +60,46 @@ void compare(t_stack *a, t_stack **b)
 }*/
 void compare_pusha_toB(t_stack **a, t_stack **b, int *bub_sort, int size)
 {
-    int end = check_numbers(*a);
+    int end = check_numbers(*a, size);
     int start = 0;
 
-int pushed = 0;
-while (pushed < size)
-
-{
-    if ((*a)->value <= bub_sort[start])
+    while ((*a) != NULL && end < size)
     {
-        pb(a, b);
-        rb(b);
-        incriment_index(&start, &end, size);
-    }
-    else if ((*a)->value <= bub_sort[end])
-    {
-        pb(a, b);
-        compare(*a, b);
-        incriment_index(&start, &end, size);
-    }
-    else
-        ra(a);
-    pushed++;
-}
-}
-
-
-
-void push_back_to_a(t_stack **a, t_stack **b)
-{
-    t_stack *biggest;
-
-    while (*b)
-    {
-        biggest = big_node(*b);  // Find the biggest node in stack b
-        while (biggest->value != (*b)->value)
+        if ((*a)->value <= bub_sort[start])
         {
-            if (biggest->index <= ft_lstsize(*b) / 2)
-                rb(b);
-            else
-                rrb(b);
+            pb(a, b);
+            rb(b);
+            incriment_index(&start, &end, size);
+        } 
+        else if ((*a)->value <= bub_sort[end])
+        {
+            pb(a, b);
+            compare(a, b);
+            incriment_index(&start, &end, size);
         }
-        pa(a, b);  // Push the biggest to stack a
-        // no need to do (*b) = (*b)->next;
+        else
+            ra(a);
     }
+}
+
+
+
+void push_back_to_a(t_stack **head_a, t_stack **head_b)
+{
+	t_stack	*biggest;
+
+	while (*head_b)
+	{
+		biggest = big_node(*head_b);
+		while (biggest->value != (*head_b)->value)
+		{
+			if (biggest->index <= ft_lstsize(*head_b) / 2)
+				rb(head_b);
+			else
+				rrb(head_b);
+		}
+		pa(head_a, head_b);
+	}
 }
 
 
@@ -116,7 +110,5 @@ void algo(t_stack **a, t_stack **b, int *arr, int size)
     if (!(*a))
         return;
     bub_sort = bubble_sort(arr, size);
-    compare_pusha_toB(a, b, bub_sort, size);
-    push_back_to_a(a, b);
-
+    sort_the_stack(a, b, size);
 }

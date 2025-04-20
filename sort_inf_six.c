@@ -6,12 +6,12 @@
 /*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:22:45 by iabasala          #+#    #+#             */
-/*   Updated: 2025/04/06 06:29:55 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/04/20 02:22:15 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+int    find_min(t_stack *stack);
 void    if_two(t_stack **s)
 {
     if (*s && (*s)->next && (*s)->value > (*s)->next->value)
@@ -25,8 +25,7 @@ void    if_tree(t_stack **s)
     int a = (*s)->value;
     int b = (*s)->next->value;
     int c = (*s)->next->next->value;
-    
-    if (a > b && b < c && a < c)
+        if (a > b && b < c && a < c)
         sa(s);
     else if (a > b && b > c)
     {
@@ -123,7 +122,8 @@ void sort_the_stack(t_stack **a, t_stack **b, int size)
         int *sorted_array = sort_array(*a);
         if (sorted_array)
         {
-            algo(a, b, sorted_array, size);
+            compare_pusha_toB(a, b, sorted_array, size);
+            push_back_to_a(a, b);
             //compare_pusha(sorted_array, a, b);  // <- PASS B
             free(sorted_array);
         }

@@ -6,7 +6,7 @@
 /*   By: iabasala <iabasala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:40:42 by iabasala          #+#    #+#             */
-/*   Updated: 2025/04/06 09:20:54 by iabasala         ###   ########.fr       */
+/*   Updated: 2025/04/20 02:12:36 by iabasala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,19 @@ void init_index(t_stack *stack)
         stack = stack->next;
     }
 }
-t_stack *big_node(t_stack *stack)
+
+t_stack	*big_node(t_stack *lst)
 {
-    t_stack *biggest;
+	t_stack	*max;
 
-    init_index(stack);
-    biggest = stack;
-    while (stack)
-    {
-        if (stack->value > biggest->value)
-            biggest = stack;
-        stack = stack->next;
-    }
-    return (biggest);
+	init_index(lst);
+	max = lst;
+	while (lst)
+	{
+		if (lst->next && max->value < lst->next->value)
+			max = lst->next;
+		lst = lst->next;
+	}
+	return (max);
 }
-
 

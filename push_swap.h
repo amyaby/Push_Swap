@@ -62,7 +62,7 @@ void compare_pusha_toB(t_stack **a, t_stack **b,int *bub_sort,int size);
 void push_back_to_a(t_stack **a, t_stack **b);
 void	init_index(t_stack *lst);
 t_stack	*find_node(t_stack *lst);
-void compare(t_stack *a,t_stack **b);
+void compare(t_stack **a,t_stack **b);
 void sort_the_stack(t_stack **a, t_stack **b, int size);
 void	incriment_index(int *start, int *end, int size);
 t_stack *big_node(t_stack *lst);
